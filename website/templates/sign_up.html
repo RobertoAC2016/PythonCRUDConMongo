@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% block title %}Sign Up{% endblock %}
+
+
+{%block content%}
+
+<h1>Sign Up</h1>
+<div class="row">
+  <div class="col-sm-4 offset-sm-4">
+    
+    <form method="POST">
+  <div class="card" style="width: 28rem;">
+    <!-- HEADER -->
+    <div>
+      <div class="card card-header">
+        Sign up to get Access
+      </div>
+    </div>
+    <!-- BODY -->
+    <div class="card-body">
+      <div>
+        Email address
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text">@</span>
+        <input type="email" name="email" id="email" class="form-control" placeholder="Enter email">
+      </div>
+      <div>
+        First Name
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text">A</span>
+        <input type="text" name="firstname" id="firstname" class="form-control" placeholder="Enter first name">
+      </div>
+      <div>
+        Password
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text">*</span>
+        <input type="password" name="password" id="password" class="form-control" placeholder="Enter password">
+      </div>
+      <div>
+        Password (confirm)
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text">*</span>
+        <input type="password" name="repassword" id="repassword" class="form-control" placeholder="Confirm password">
+      </div>
+      <div>
+        &nbsp;
+      </div>
+      <div class="text-center">
+        <input type="submit" value="Send" class="btn btn-primary">
+      </div>
+    </div>
+  </div>
+</form>
+  
+</div>
+</div>
+
+{%endblock%}
+
+
