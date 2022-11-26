@@ -1,13 +1,78 @@
 {% extends 'base.html' %}
 {% block title %}Index{% endblock %}
 
-
 {%block content%}
-Este es el centenido de la pagina Index
+<!--columnas id oculta, titulo, contenido, fecha, status y autor-->
 
+<form method="POST" action="nuevanota">
+    <button type="submit" class="btn btn-info">
+        <i class="bi bi-file-earmark-plus"></i>
+            Nueva
+    </button>
+</form>
 
-
-
+<div class="row">
+    <div class="col-sm-2">
+        <b>Titulo</b>
+    </div>
+    <div class="col-sm-2">
+        <b>Nota</b>
+    </div>
+    <div class="col-sm-2">
+        <b>Creacion</b>
+    </div>
+    <div class="col-sm-2">
+        <b>Estatus</b>
+    </div>
+    <div class="col-sm-2">
+        <b>Autor</b>
+    </div>
+    <div class="col-sm-2">
+    </div>
+</div>
+{%if regs != None and regs != [] %}
+{% for row in regs %}
+<div class="row">
+    <div class="col-sm-2">
+        {{row["title"]}}
+    </div>
+    <div class="col-sm-2">
+        {{row["note"]}}
+    </div>
+    <div class="col-sm-2">
+        {{row["date"]}}
+    </div>
+    <div class="col-sm-2">
+        {{row["status"]}}
+    </div>
+    <div class="col-sm-2">
+        {{row["autor"]}}
+    </div>
+    <div class="col-sm-2">
+        <form method="POST" action="vernota">
+            <input type="hidden" name="gid" id="gid" value="{{row['_id']}}">
+            <button type="submit" class="btn btn-info">
+                <i class="bi bi-eye"></i>
+            </button>
+        </form>
+        <form method="POST" action="borrarnota">
+            <input type="hidden" name="gid" id="gid" value="{{row['_id']}}">
+            <button type="submit" class="btn btn-danger">
+                <i class="bi bi-trash"></i>
+            </button>
+        </form>
+    </div>
+</div>
+{% endfor %}
+{% else %}
+<div class="row">
+    <div class="col-sm-6 offset-6">
+        <h3>
+            No hay notas
+        </h3>
+    </div>
+</div>
+{% endif %}
 
 {%endblock%}
 

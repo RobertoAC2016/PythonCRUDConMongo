@@ -22,7 +22,8 @@ def login():
                 valida_pwd = check_password_hash(row["password"], pwd)
                 if valida_pwd:
                     session["username"] = mail
-                    return render_template("index.html")
+                    return redirect(url_for("views.index"))
+                    # return render_template("index.html")
                 else:
                     flash(f"El password no coincide", category='error')
                     return render_template("login.html")

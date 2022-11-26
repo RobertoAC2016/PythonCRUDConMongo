@@ -9,8 +9,10 @@ def login_required(f):
     def decorated(*args, **kwargs):
         try:
             sess = session['username']
-            return render_template("index.html")
+            # flash(f"Acceso valido", category='success')
+            return f(*args, **kwargs)
         except Exception:
+            pass
             flash(f"No cuentas con acceso", category='error')
             return render_template("login.html")
     return decorated
